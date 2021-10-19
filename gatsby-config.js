@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -26,9 +28,25 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: "./src/assets/images",
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-alias-imports",
+      options: {
+        aliases: {
+          "@assets": "src/assets",
+          "@components": "src/components",
+          "@config": "src/config",
+          "@hooks": "src/hooks",
+          "@templates": "src/templates",
+          "@theme": "src/theme",
+          "@utils": "src/utils",
+          "@config": "src/config",
+          "@types": "src/types",
+        },
+      },
     },
   ],
 };
